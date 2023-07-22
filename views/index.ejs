@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/foundation.js"></script> 
+  <title>Task Manager App</title>
+</head>
+
+<body>
+  <script>
+
+  </script>
+  
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li><a href="" class="menu-text">BELLAm : TASK MANAGER APP</a></li>
+
+      </ul>
+    </div>
+    <div class="top-bar-right menu">
+      <ul class="menu">
+        <li><a href="https://about.me/mohamedbella">About developer</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end menu -->
+
+  <section class="hero">
+    <div class="grid-x grid-margin-x grid-padding-x">
+      <div class="cell large-6 medium-6 small-12">
+        <h1>MANAGE ALL YOUR TASK IN ONE SITE</h1>
+        <p>
+          Just For Learning | <span>2023/07/01</span>
+        </p>
+        <hr>
+        <form action="/task" method="post">
+          <label> Your Task Title
+            <input name="title" type="text" placeholder="Ex. Walk With The Dog">
+          </label>
+          <!--  -->
+          <label> task Status
+            <select name="taskStatus" id="">
+              <option value="todo">to do</option>
+              <option value="inProgress">in progress</option>
+              <option value="done">done</option>
+            </select>
+          </label>
+          <button type="submit" class="button success">Add Task</button>
+        </form>
+      </div>
+      <div class="cell large-6 medium-6 small-12">
+        <img src="https://img.freepik.com/free-vector/clip-board-paper-pencil-cartoon-icon-illustration-education-object-icon-concept-isolated-flat-cartoon-style_138676-2152.jpg" alt="">
+      </div>
+    </div>
+  </section>
+  <div class="grid-x grid-margin-x grid-padding-x">
+    <!-- to do -->
+    <div class="cell large-4 medium-4 small-12">
+      <div class="card">
+        <div class="card-divider">
+          to do
+        </div>
+        <div class="card-section">
+        
+            <% tasks.forEach(task => { %>
+            <% if(task.taskStatus === 'todo'){ %>
+              <div class="task">
+             <p style="font-weight: bolder;"> 💤 <%= task.title %></p>
+                <ul class="menu">
+                  
+                  <li><a class="button warning tiny" href="/task/<%= task._id %>" id="">Update Status</a></li>
+                  <form action="/task/delete/<%= task._id %>" method="post">
+                    <li><button type="submit" class="button alert tiny">delete task</button></li>
+                  </form>
+                </ul>
+              </div>
+              <% } %>
+            <% }) %>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- in progress -->
+    <div class="cell large-4 medium-4 small-12">
+      <div class="card">
+        <div class="card-divider">
+          in progress
+        </div>
+        <div class="card-section">
+  
+          <% tasks.forEach(task => { %>
+            <% if(task.taskStatus === 'inProgress'){ %>
+              <div class="task">
+                <p style="font-weight: bolder;"> 🕓 <%= task.title %></p>
+                <ul class="menu">
+                  
+                  <li><a class="button warning tiny" href="/task/<%= task._id %>" id="">Update Status</a></li>
+                  <form action="/task/delete/<%= task._id %>" method="post">
+                    <li><button type="submit" class="button alert tiny">delete task</button></li>
+                  </form>
+                </ul>
+              </div>
+              <% } %>
+            <% }) %>
+          
+  
+        </div>
+      </div>
+    </div>
+
+    <!-- done -->
+    <div class="cell large-4 medium-4 small-12">
+      <div class="card">
+        <div class="card-divider">
+          done
+        </div>
+        <div class="card-section">
+  
+          <% tasks.forEach(task => { %>
+            <% if(task.taskStatus === 'done'){ %>
+              <div class="task">
+                <p style="font-weight: bolder;"> ✅ <%= task.title %></p>
+                <ul class="menu">
+                  
+                  <li><a class="button warning tiny" href="/task/<%= task._id %>" id="">Update Status</a></li>
+                  <form action="/task/delete/<%= task._id %>" method="post">
+                    <li><button type="submit" class="button alert tiny">delete task</button></li>
+                  </form>
+                </ul>
+              </div>
+              <% } %>
+            <% }) %>
+          
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/foundation.js"></script> 
+  <title>Update | Task Manager App</title>
+</head>
+
+<body>
+  <script>
+
+  </script>
+  
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li><a href="" class="menu-text">BELLAm : TASK MANAGER APP</a></li>
+
+      </ul>
+    </div>
+    <div class="top-bar-right menu">
+      <ul class="menu">
+        <li><a href="https://about.me/mohamedbella">About developer</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end menu -->
+  <section class="hero">
+    <div class="grid-x grid-margin-x grid-padding-x">
+      <div class="cell large-6 medium-6 small-12">
+        <h1>UPDATE YOUR TASK</h1>
+        <hr>
+        <form action="/task/update/<%= task._id %>" method="post">
+          <label> Your Task Title
+            <input name="title" type="text" value="<%= task.title %>">
+          </label>
+          <!--  -->
+          <label> task Status
+            <select name="taskStatus" id="">
+              <option value="todo">to do</option>
+              <option value="inProgress">in progress</option>
+              <option value="done">done</option>
+            </select>
+          </label>
+          <button type="submit" class="button primary">update Task</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
